@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  NewDemo
+//  Weibo
 //
 //  Created by ldy on 16/6/22.
 //  Copyright © 2016年 ldy. All rights reserved.

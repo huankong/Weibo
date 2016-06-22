@@ -12,7 +12,7 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "首页"
         // Do any additional setup after loading the view.
     }
 

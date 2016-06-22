@@ -12,8 +12,8 @@ class DiscoverViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "发现"
+        view.backgroundColor = UIColor.redColor()
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B0477CB1D1A68680064CD2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477CA1D1A68680064CD2D /* AppDelegate.swift */; };
-		0B0477CD1D1A68680064CD2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477CC1D1A68680064CD2D /* ViewController.swift */; };
 		0B0477D21D1A68680064CD2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0477D11D1A68680064CD2D /* Assets.xcassets */; };
 		0B0477E81D1A70500064CD2D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477E71D1A70500064CD2D /* BaseViewController.swift */; };
 		0B0477EA1D1A71520064CD2D /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477E91D1A71520064CD2D /* DiscoverViewController.swift */; };
@@ -17,12 +16,12 @@
 		0B0477F01D1A716F0064CD2D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477EF1D1A716F0064CD2D /* ProfileViewController.swift */; };
 		0B0477F21D1A71CF0064CD2D /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477F11D1A71CF0064CD2D /* BaseTabBarViewController.swift */; };
 		0B0477F41D1A71E10064CD2D /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477F31D1A71E10064CD2D /* BaseNavigationViewController.swift */; };
+		0B0477F71D1A96F10064CD2D /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477F61D1A96F10064CD2D /* SendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B0477C71D1A68680064CD2D /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B0477CA1D1A68680064CD2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B0477CC1D1A68680064CD2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B0477D11D1A68680064CD2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B0477D61D1A68680064CD2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B0477E71D1A70500064CD2D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		0B0477EF1D1A716F0064CD2D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0B0477F11D1A71CF0064CD2D /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		0B0477F31D1A71E10064CD2D /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		0B0477F61D1A96F10064CD2D /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				0B0477CA1D1A68680064CD2D /* AppDelegate.swift */,
-				0B0477CC1D1A68680064CD2D /* ViewController.swift */,
 				0B0477E11D1A70300064CD2D /* Main */,
 				0B0477DE1D1A70300064CD2D /* Lib */,
 				0B0477D11D1A68680064CD2D /* Assets.xcassets */,
@@ -101,9 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				0B0477E21D1A70300064CD2D /* Base */,
-				0B0477E31D1A70300064CD2D /* Discover */,
 				0B0477E41D1A70300064CD2D /* Home */,
 				0B0477E51D1A70300064CD2D /* Message */,
+				0B0477F51D1A96E20064CD2D /* Send */,
+				0B0477E31D1A70300064CD2D /* Discover */,
 				0B0477E61D1A70300064CD2D /* Profile */,
 			);
 			path = Main;
@@ -112,8 +112,8 @@
 		0B0477E21D1A70300064CD2D /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0B0477E71D1A70500064CD2D /* BaseViewController.swift */,
 				0B0477F11D1A71CF0064CD2D /* BaseTabBarViewController.swift */,
+				0B0477E71D1A70500064CD2D /* BaseViewController.swift */,
 				0B0477F31D1A71E10064CD2D /* BaseNavigationViewController.swift */,
 			);
 			path = Base;
@@ -149,6 +149,14 @@
 				0B0477EF1D1A716F0064CD2D /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		0B0477F51D1A96E20064CD2D /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				0B0477F61D1A96F10064CD2D /* SendViewController.swift */,
+			);
+			path = Send;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B0477EC1D1A715E0064CD2D /* HomeViewController.swift in Sources */,
-				0B0477CD1D1A68680064CD2D /* ViewController.swift in Sources */,
 				0B0477EA1D1A71520064CD2D /* DiscoverViewController.swift in Sources */,
+				0B0477F71D1A96F10064CD2D /* SendViewController.swift in Sources */,
 				0B0477CB1D1A68680064CD2D /* AppDelegate.swift in Sources */,
 				0B0477F01D1A716F0064CD2D /* ProfileViewController.swift in Sources */,
 				0B0477EE1D1A71660064CD2D /* MessageViewController.swift in Sources */,

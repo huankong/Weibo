@@ -1,5 +1,5 @@
 //
-//  MessageViewController.swift
+//  SendViewController.swift
 //  Weibo
 //
 //  Created by ldy on 16/6/22.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MessageViewController: BaseViewController {
+class SendViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "消息"
-        view.backgroundColor = UIColor.purpleColor()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

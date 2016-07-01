@@ -13,7 +13,11 @@ class MessageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "消息"
-        view.backgroundColor = UIColor.purpleColor()
+        if !islogin {
+            vistorView?.visitorInfo(VisitorView.VisitorType.IsMessage)
+            navigationItem.leftBarButtonItem = UIBarButtonItem()
+            navigationItem.rightBarButtonItem = UIBarButtonItem()
+        }
     }
 
     override func didReceiveMemoryWarning() {

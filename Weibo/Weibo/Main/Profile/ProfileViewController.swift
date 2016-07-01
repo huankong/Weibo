@@ -13,7 +13,11 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "我"
-        view.backgroundColor = UIColor.lightGrayColor()
+        if !islogin {
+            vistorView?.visitorInfo(VisitorView.VisitorType.IsProfile)
+            navigationItem.leftBarButtonItem = UIBarButtonItem()
+            navigationItem.rightBarButtonItem = UIBarButtonItem()
+        }
     }
 
     override func didReceiveMemoryWarning() {

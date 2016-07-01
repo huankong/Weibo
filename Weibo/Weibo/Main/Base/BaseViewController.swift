@@ -10,15 +10,30 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    var islogin = true
+    var vistorView: VisitorView?
+    override func loadView() {
+        islogin ? super.loadView() : createVistorView()
+    }
+    private func createVistorView() {
+        
+        vistorView = VisitorView()
+        view = vistorView
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(registerBtnAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(loginBtnAction))
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func registerBtnAction() {
+        vistorView?.delegate?.registBtnDidAction()
+    }
+    func loginBtnAction() {
+        vistorView?.delegate?.loginBtnDidAction()
     }
     
 

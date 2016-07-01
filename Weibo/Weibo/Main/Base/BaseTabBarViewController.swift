@@ -11,6 +11,7 @@ import UIKit
 class BaseTabBarViewController: UITabBarController {
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         for subView in tabBar.subviews {
             if subView.isKindOfClass(NSClassFromString("UITabBarButton")!) {
                 subView.removeFromSuperview()
@@ -20,39 +21,73 @@ class BaseTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //动态添加数据
+        addData()
+        
         //添加控制器
         insertCtrlView()
 
         //创建tabBar
         createTabBar()
+        
+    }
+    
+    private var lastBtn:UIButton?
+    private var arrImage: [String] = []
+    private var arrName: [String] = []
+    private var arrVC: [String] = []
+    
+    /**
+     动态添加数据
+     */
+    private func addData() {
+        let path = NSBundle.mainBundle().pathForResource("VCSettings.json", ofType: nil)
+        if let jsonPath = path {
+            
+            let dataJson = NSData(contentsOfFile: jsonPath)
+            do {
+                
+                let jsonArr = try NSJSONSerialization.JSONObjectWithData(dataJson!, options: NSJSONReadingOptions.MutableContainers)
+                for dict in jsonArr as! [[String: String]] {
+                    arrImage.append(dict["imageName"]!)
+                    arrName.append(dict["title"]!)
+                    arrVC.append(dict["vcName"]!)
+                }
+            }
+            catch{
+                print(error)
+            }
+        }
     }
     
     /**
      添加控制器
      */
-    func insertCtrlView() {
+    private func insertCtrlView() {
+        for strVC in arrVC {
+            let bundleName = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as! String
+            
+            let viewCtrl = NSClassFromString(bundleName + "." + strVC) as! BaseViewController.Type
+            let homeNaviVC = BaseNavigationViewController(rootViewController: viewCtrl.init())
+            addChildViewController(homeNaviVC)
+        }
+        
+        /*
         let homeNaviVC = BaseNavigationViewController(rootViewController: HomeViewController())
         let messageNaviVC = BaseNavigationViewController(rootViewController: MessageViewController())
         let sendNaviVC = BaseNavigationViewController(rootViewController: SendViewController())
         let discoverNaviVC = BaseNavigationViewController(rootViewController: DiscoverViewController())
         let profileNaviVC = BaseNavigationViewController(rootViewController: ProfileViewController())
         viewControllers = [homeNaviVC,messageNaviVC,sendNaviVC,discoverNaviVC,profileNaviVC]
+         */
     }
     
     /**
      创建tabbar
      */
-    var lastBtn:UIButton?
-    var arrImage: [String] {
-        get{
-    return["tabbar_home","tabbar_message_center","tabbar_compose_button","tabbar_discover","tabbar_profile"]
-        }
-    }
-    
-    func createTabBar() {
+    private func createTabBar() {
         tabBar.backgroundColor = UIColor(patternImage: UIImage(named: "tabbar_background")!)
-//        let arrImage =
-        let arrName = ["首页","消息","","发现","我"]
+        
         let itemW = tabBar.frame.width/5.0
         let itemH = tabBar.frame.height
         let imageSize: CGFloat = 30;
@@ -96,14 +131,17 @@ class BaseTabBarViewController: UITabBarController {
         }
         
     }
+    /**
+     tabbarbtn 点击事件
+     
+     - parameter btn: 按钮
+     */
     func btnAction(btn: UIButton) {
         if btn.tag-100 == 2 {
             return
         }
         
         selectedIndex = btn.tag-100
-        print(btn.tag)
-        print("selectedIndex:\(selectedIndex)")
         if btn == lastBtn {
             return
         }

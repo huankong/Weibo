@@ -13,7 +13,7 @@ class DiscoverViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "发现"
-        view.backgroundColor = UIColor.redColor()
+        islogin = true
     }
 
     override func didReceiveMemoryWarning() {

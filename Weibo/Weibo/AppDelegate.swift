@@ -8,6 +8,8 @@
 
 import UIKit
 
+let KScreenH = UIScreen.mainScreen().bounds.size.height
+let KScreenW = UIScreen.mainScreen().bounds.size.width
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

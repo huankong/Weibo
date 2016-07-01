@@ -17,6 +17,15 @@
 		0B0477F21D1A71CF0064CD2D /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477F11D1A71CF0064CD2D /* BaseTabBarViewController.swift */; };
 		0B0477F41D1A71E10064CD2D /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477F31D1A71E10064CD2D /* BaseNavigationViewController.swift */; };
 		0B0477F71D1A96F10064CD2D /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0477F61D1A96F10064CD2D /* SendViewController.swift */; };
+		0B68D7A81D22186F0052B4C7 /* NaviTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B68D7A71D22186F0052B4C7 /* NaviTitleButton.swift */; };
+		0B6B87641D1BBDC700969349 /* VCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B87631D1BBDC700969349 /* VCSettings.json */; };
+		0B6B87661D1BE15500969349 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B87651D1BE15500969349 /* VisitorView.swift */; };
+		0B74F2D01D23CCB100B6C93C /* PopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74F2CD1D23CCB100B6C93C /* PopAnimation.swift */; };
+		0B74F2D11D23CCB100B6C93C /* PopPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74F2CE1D23CCB100B6C93C /* PopPresentationController.swift */; };
+		0B74F2D21D23CCB100B6C93C /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74F2CF1D23CCB100B6C93C /* PopViewController.swift */; };
+		0B74F2D51D23CD7300B6C93C /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74F2D41D23CD7300B6C93C /* QRCodeViewController.swift */; };
+		0BC1CDDB1D21301100CE2829 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1CDDA1D21301100CE2829 /* UIBarButtonItem+Extension.swift */; };
+		53F50A4F0C4470E6B1801ED3 /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF310047B634668FE7F4159B /* Pods_Weibo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +41,17 @@
 		0B0477F11D1A71CF0064CD2D /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		0B0477F31D1A71E10064CD2D /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		0B0477F61D1A96F10064CD2D /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		0B68D7A71D22186F0052B4C7 /* NaviTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaviTitleButton.swift; sourceTree = "<group>"; };
+		0B6B87631D1BBDC700969349 /* VCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VCSettings.json; sourceTree = "<group>"; };
+		0B6B87651D1BE15500969349 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		0B74F2CD1D23CCB100B6C93C /* PopAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
+		0B74F2CE1D23CCB100B6C93C /* PopPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopPresentationController.swift; sourceTree = "<group>"; };
+		0B74F2CF1D23CCB100B6C93C /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		0B74F2D41D23CD7300B6C93C /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		0BC1CDDA1D21301100CE2829 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		2E539A274CD47ED8A9A8A4D3 /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
+		F306C0E2F6838857B487F533 /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
+		FF310047B634668FE7F4159B /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F50A4F0C4470E6B1801ED3 /* Pods_Weibo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +71,8 @@
 			children = (
 				0B0477C91D1A68680064CD2D /* Weibo */,
 				0B0477C81D1A68680064CD2D /* Products */,
+				BA88E30441D8C8F322688AD6 /* Pods */,
+				69F0D7A88499B77059E970C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +108,8 @@
 		0B0477DF1D1A70300064CD2D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0BC1CDDA1D21301100CE2829 /* UIBarButtonItem+Extension.swift */,
+				0B68D7A71D22186F0052B4C7 /* NaviTitleButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -112,9 +137,11 @@
 		0B0477E21D1A70300064CD2D /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0B6B87631D1BBDC700969349 /* VCSettings.json */,
 				0B0477F11D1A71CF0064CD2D /* BaseTabBarViewController.swift */,
 				0B0477E71D1A70500064CD2D /* BaseViewController.swift */,
 				0B0477F31D1A71E10064CD2D /* BaseNavigationViewController.swift */,
+				0B6B87651D1BE15500969349 /* VisitorView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -131,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				0B0477EB1D1A715E0064CD2D /* HomeViewController.swift */,
+				0B74F2CC1D23CCB100B6C93C /* PopGroup */,
+				0B74F2D31D23CCCF00B6C93C /* QRCode */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -159,6 +188,41 @@
 			path = Send;
 			sourceTree = "<group>";
 		};
+		0B74F2CC1D23CCB100B6C93C /* PopGroup */ = {
+			isa = PBXGroup;
+			children = (
+				0B74F2CD1D23CCB100B6C93C /* PopAnimation.swift */,
+				0B74F2CE1D23CCB100B6C93C /* PopPresentationController.swift */,
+				0B74F2CF1D23CCB100B6C93C /* PopViewController.swift */,
+			);
+			path = PopGroup;
+			sourceTree = "<group>";
+		};
+		0B74F2D31D23CCCF00B6C93C /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				0B74F2D41D23CD7300B6C93C /* QRCodeViewController.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		69F0D7A88499B77059E970C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF310047B634668FE7F4159B /* Pods_Weibo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA88E30441D8C8F322688AD6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F306C0E2F6838857B487F533 /* Pods-Weibo.debug.xcconfig */,
+				2E539A274CD47ED8A9A8A4D3 /* Pods-Weibo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,9 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B0477D91D1A68680064CD2D /* Build configuration list for PBXNativeTarget "Weibo" */;
 			buildPhases = (
+				90A3291FEFF5AA66D148EFE4 /* [CP] Check Pods Manifest.lock */,
 				0B0477C31D1A68680064CD2D /* Sources */,
 				0B0477C41D1A68680064CD2D /* Frameworks */,
 				0B0477C51D1A68680064CD2D /* Resources */,
+				6942FCD372E998AAC24BB39A /* [CP] Embed Pods Frameworks */,
+				79D09E748EF79C36A5FD16EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,11 +285,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B6B87641D1BBDC700969349 /* VCSettings.json in Resources */,
 				0B0477D21D1A68680064CD2D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6942FCD372E998AAC24BB39A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weibo/Pods-Weibo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79D09E748EF79C36A5FD16EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weibo/Pods-Weibo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90A3291FEFF5AA66D148EFE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B0477C31D1A68680064CD2D /* Sources */ = {
@@ -230,14 +346,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B0477EC1D1A715E0064CD2D /* HomeViewController.swift in Sources */,
+				0B74F2D11D23CCB100B6C93C /* PopPresentationController.swift in Sources */,
+				0B74F2D51D23CD7300B6C93C /* QRCodeViewController.swift in Sources */,
+				0B74F2D21D23CCB100B6C93C /* PopViewController.swift in Sources */,
 				0B0477EA1D1A71520064CD2D /* DiscoverViewController.swift in Sources */,
+				0B74F2D01D23CCB100B6C93C /* PopAnimation.swift in Sources */,
 				0B0477F71D1A96F10064CD2D /* SendViewController.swift in Sources */,
 				0B0477CB1D1A68680064CD2D /* AppDelegate.swift in Sources */,
+				0B68D7A81D22186F0052B4C7 /* NaviTitleButton.swift in Sources */,
 				0B0477F01D1A716F0064CD2D /* ProfileViewController.swift in Sources */,
 				0B0477EE1D1A71660064CD2D /* MessageViewController.swift in Sources */,
 				0B0477F41D1A71E10064CD2D /* BaseNavigationViewController.swift in Sources */,
+				0B6B87661D1BE15500969349 /* VisitorView.swift in Sources */,
 				0B0477E81D1A70500064CD2D /* BaseViewController.swift in Sources */,
 				0B0477F21D1A71CF0064CD2D /* BaseTabBarViewController.swift in Sources */,
+				0BC1CDDB1D21301100CE2829 /* UIBarButtonItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,10 +452,12 @@
 		};
 		0B0477DA1D1A68680064CD2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F306C0E2F6838857B487F533 /* Pods-Weibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Weibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.asia.mvnedaily.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,10 +466,12 @@
 		};
 		0B0477DB1D1A68680064CD2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E539A274CD47ED8A9A8A4D3 /* Pods-Weibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Weibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.asia.mvnedaily.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,6 +497,7 @@
 				0B0477DB1D1A68680064CD2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

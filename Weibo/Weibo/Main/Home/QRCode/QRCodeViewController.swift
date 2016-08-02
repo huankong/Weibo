@@ -52,14 +52,17 @@ class QRCodeViewController: UIViewController {
     }
     //创建视图
     func initView() {
-        //扫描二维码
-        startReading()
         
         view.addSubview(borderView)
         
         borderView.addSubview(scanlineView)
+        //按钮
+        view.addSubview(qrCodeBtn)
+
         view.setNeedsUpdateConstraints()
         
+        //扫描二维码
+        startReading()
        
         
     }
@@ -74,10 +77,10 @@ class QRCodeViewController: UIViewController {
         session.addOutput(output)
         output.metadataObjectTypes = output.availableMetadataObjectTypes
         output.rectOfInterest = borderView.frame
-        output.setMetadataObjectsDelegate(self, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
-        view.layer.insertSublayer(previewLayer, atIndex: 0)
+        output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
         
-        //添加预览图层
+        view.layer.insertSublayer(previewLayer, atIndex: 0)
+        //添加边线图层
         previewLayer.addSublayer(drawLayer)
         //开始会话
         session.startRunning()
@@ -108,11 +111,15 @@ class QRCodeViewController: UIViewController {
                 make.bottom.equalTo(borderView.snp_top).priorityLow()
                 make.left.equalTo(borderView)
             }
+            qrCodeBtn.snp_makeConstraints(closure: { (make) in
+                make.top.equalTo(borderView).offset(-50)
+                make.centerX.equalTo(view)
+            })
+            
             isSetupConstrains = true
         }
         super.updateViewConstraints()
     }
-    
     //MARK: -导航栏按钮点击事件
     func rightNavAction() {
         
@@ -120,8 +127,24 @@ class QRCodeViewController: UIViewController {
     func leftNavAction() {
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+    //按钮点击事件
+    func qrCodeBtnAction() {
+        let vc = QRProduceViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     //MARK: -懒加载
+    //生成二维码按钮
+    private lazy var qrCodeBtn: UIButton = {
+       let btn = UIButton(type: UIButtonType.Custom)
+        btn.setTitle("生成二维码", forState: UIControlState.Normal)
+        var image = UIImage(named: "qrcode_button_background")
+        image = image?.stretchableImageWithLeftCapWidth(Int(image!.size.width/2.0), topCapHeight: Int(image!.size.height/2.0))
+        btn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        btn.setBackgroundImage(image, forState: UIControlState.Normal)
+        btn.addTarget(self, action: #selector(QRCodeViewController.qrCodeBtnAction), forControlEvents: UIControlEvents.TouchUpInside)
+        btn.sizeToFit()
+        return btn
+    }()
     //二维码边框
     private lazy var borderView: UIImageView = {
         var image = UIImage(named: "qrcode_border")
@@ -178,6 +201,7 @@ class QRCodeViewController: UIViewController {
     
 }
 
+
 extension QRCodeViewController: UITabBarDelegate {
     
     //MARK: - UITabBarDelegate
@@ -185,7 +209,7 @@ extension QRCodeViewController: UITabBarDelegate {
 
         if item.tag == 100 {
             borderView.snp_updateConstraints(closure: { (make) in
-                make.height.equalTo(250)
+                make.height.equalTo(200)
             })
         }
         else if item.tag == 101 {
@@ -196,12 +220,16 @@ extension QRCodeViewController: UITabBarDelegate {
     }
 }
 
+
 extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
     {
         //清除绘制的图层
         clearCorner()
+        //停止会话
+        session.stopRunning()
+        
         //停止会话
 //        session.stopRunning()
         if metadataObjects.count > 0 {
@@ -210,12 +238,26 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                     //转化坐标系
                     let codeObject = previewLayer.transformedMetadataObjectForMetadataObject(object as! AVMetadataObject) as! AVMetadataMachineReadableCodeObject
                     //绘制图形
-                    drawPreview(codeObject)
+                        
+                    self.drawPreview(codeObject)
+                    
+                    let alertView = UIAlertController(title: "扫描到的结果", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+                    alertView.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (_) in
+                        //重新扫描
+                        self.clearCorner()
+                        self.session.startRunning()
+                    }))
+                    alertView.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (_) in
+                        print(codeObject.stringValue)
+                        self.clearCorner()
+                        self.session.startRunning()
+                    }))
+                    self.navigationController?.presentViewController(alertView, animated: true, completion: nil)
                 }
             }
         }
-        //删除预览图层
-//        previewLayer.removeFromSuperlayer()
+       
+        
     }
     func drawPreview(codeObject: AVMetadataMachineReadableCodeObject) {
         
@@ -226,7 +268,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
         let layer = CAShapeLayer()
         layer.lineWidth = 4
         layer.strokeColor = UIColor.redColor().CGColor
-//        layer.fillColor = UIColor.clearColor().CGColor
+        layer.fillColor = UIColor.clearColor().CGColor
         //创建路径
         let path = UIBezierPath()
         var point = CGPointZero
@@ -252,6 +294,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
         
         //将绘制好的路径添加到图层上
         drawLayer.addSublayer(layer)
+        
     }
     //清除绘制的图层
     func clearCorner() {

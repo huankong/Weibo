@@ -8,43 +8,43 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController,VisitorViewDelegate {
 
-    var islogin = true
+    var islogin = UserAcount.userLogin()
     var vistorView: VisitorView?
     override func loadView() {
         islogin ? super.loadView() : createVistorView()
     }
+//    deinit {
+//        print("BaseViewController销毁")
+//    }
     private func createVistorView() {
         
         vistorView = VisitorView()
+        vistorView!.delegate = self
         view = vistorView
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(registerBtnAction))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(loginBtnAction))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(registBtnDidAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(loginBtnDidAction))
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    //登录回调
+    func loginBtnDidAction() {
+        let navi = BaseNavigationViewController(rootViewController: Oauth2ViewController())
+        self.presentViewController(navi, animated: true, completion: nil)
+
+    }
+    //注册回调
+    func registBtnDidAction() {
+        print(UserAcount.readAccount())
+    }
+    func attenBtnDidAction() {
         
     }
-
-    func registerBtnAction() {
-        vistorView?.delegate?.registBtnDidAction()
-    }
-    func loginBtnAction() {
-        vistorView?.delegate?.loginBtnDidAction()
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

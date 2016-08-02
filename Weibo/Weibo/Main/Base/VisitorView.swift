@@ -25,8 +25,12 @@ class VisitorView: UIView {
         case IsDiscover
         case IsProfile
     }
+    deinit {
+        print("销毁")
+    }
     //定义一个属性保存代理对象
     weak var delegate: VisitorViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -104,6 +108,8 @@ class VisitorView: UIView {
             messageLabel.text = "登录后，别人评论你的微博，给你发消息，都会在这里收到通知"
         case .IsDiscover:
             hidenView()
+            iconImage.image = self.getbtnImage("visitordiscover_image_message")
+            messageLabel.text = "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"
         case .IsProfile:
             hidenView()
             iconImage.image = UIImage(named: "visitordiscover_image_profile")
@@ -214,7 +220,7 @@ class VisitorView: UIView {
         delegate?.registBtnDidAction()
     }
     /**
-     注册按钮点击事件
+     登录按钮点击事件
      */
     func loginBtnAction() {
         delegate?.loginBtnDidAction()

@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import SDWebImage
+//切换控制器通知
+let KSwiftRootViewControllerKey = "KSwiftRootViewControllerKey"
 let KScreenH = UIScreen.mainScreen().bounds.size.height
 let KScreenW = UIScreen.mainScreen().bounds.size.width
 @UIApplicationMain
@@ -16,15 +18,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        /**
+         创建window
+         */
+        initWindow()
+        window?.rootViewController = defaultVC()
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = BaseTabBarViewController()
-        window?.makeKeyAndVisible()
+        //判断版本号
+        isNewUpdate()
         
+        //接受通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.swiftRootViewAction(_:)), name: KSwiftRootViewControllerKey, object: nil)
         return true
     }
-
+    /**
+     创建window
+     */
+    func initWindow() {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = UIColor.whiteColor()
+        window?.makeKeyAndVisible()
+    }
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    func swiftRootViewAction(notification: NSNotification) {
+        if notification.object as! Bool {
+            window?.rootViewController = BaseTabBarViewController()
+        }else {
+            //重新创建window
+            initWindow()
+            window?.rootViewController = BaseTabBarViewController()
+        }
+    }
+    /**
+     获取默认界面
+     
+     - returns: 界面
+     */
+    func defaultVC() -> UIViewController {
+        if UserAcount.userLogin() {
+            return isNewUpdate() ? NewFeatureCollectionViewController() : WelcomeViewController()
+        }
+        return WelcomeViewController()
+    }
+    /**
+     判断版本号
+     */
+    private func isNewUpdate() -> Bool {
+        //当前版本号
+        let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+        //获取以前的版本号，自己存到文件的
+        let sandVersion = NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
+        if currentVersion.compare(sandVersion) == NSComparisonResult.OrderedDescending{
+            NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            return true
+        }
+        return false
+    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

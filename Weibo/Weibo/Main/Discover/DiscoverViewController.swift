@@ -13,7 +13,11 @@ class DiscoverViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "发现"
-        islogin = true
+        if !islogin {
+            vistorView?.visitorInfo(VisitorView.VisitorType.IsDiscover)
+            navigationItem.leftBarButtonItem = UIBarButtonItem()
+            navigationItem.rightBarButtonItem = UIBarButtonItem()
+        }
     }
 
     override func didReceiveMemoryWarning() {

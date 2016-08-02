@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseTabBarViewController: UITabBarController {
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         for subView in tabBar.subviews {
@@ -26,7 +26,7 @@ class BaseTabBarViewController: UITabBarController {
         
         //添加控制器
         insertCtrlView()
-
+        
         //创建tabBar
         createTabBar()
         
@@ -36,7 +36,9 @@ class BaseTabBarViewController: UITabBarController {
     private var arrImage: [String] = []
     private var arrName: [String] = []
     private var arrVC: [String] = []
-    
+//    deinit {
+//        print("BaseTabBarViewController销毁")
+//    }
     /**
      动态添加数据
      */
@@ -73,12 +75,12 @@ class BaseTabBarViewController: UITabBarController {
         }
         
         /*
-        let homeNaviVC = BaseNavigationViewController(rootViewController: HomeViewController())
-        let messageNaviVC = BaseNavigationViewController(rootViewController: MessageViewController())
-        let sendNaviVC = BaseNavigationViewController(rootViewController: SendViewController())
-        let discoverNaviVC = BaseNavigationViewController(rootViewController: DiscoverViewController())
-        let profileNaviVC = BaseNavigationViewController(rootViewController: ProfileViewController())
-        viewControllers = [homeNaviVC,messageNaviVC,sendNaviVC,discoverNaviVC,profileNaviVC]
+         let homeNaviVC = BaseNavigationViewController(rootViewController: HomeViewController())
+         let messageNaviVC = BaseNavigationViewController(rootViewController: MessageViewController())
+         let sendNaviVC = BaseNavigationViewController(rootViewController: SendViewController())
+         let discoverNaviVC = BaseNavigationViewController(rootViewController: DiscoverViewController())
+         let profileNaviVC = BaseNavigationViewController(rootViewController: ProfileViewController())
+         viewControllers = [homeNaviVC,messageNaviVC,sendNaviVC,discoverNaviVC,profileNaviVC]
          */
     }
     
@@ -159,6 +161,6 @@ class BaseTabBarViewController: UITabBarController {
         
         
     }
-
-
+    
+    
 }
